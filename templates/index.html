@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/events">
+<div>
+<label for="event_name">Special Events</label>
+<input id="event_name" type="text" name="event_name">
+</div>
+
+<div>
+  <label for="guest_qty">Number of guests</label>
+  <input id="guest_qty" type="text" name="guest_qty">
+</div>
+
+<div>
+  <label for="room_location">Location</label>
+  <input id="room_location" type="text" name="room_location">
+</div>
+
+<div>
+<label for="description">Description</label>
+<textarea id="description" name="description" id="" cols="30" rows="10"></textarea>
+</div>
+
+<input type="submit">
+</form>
+
+{% for event in events %}
+
+<div>
+
+  <p>
+    <b>{{event.date}}</b>: {{ event.date }}
+    <b> {{ event.date.strftime("%b %d %Y") }}: </b> {{ event.number_of_guest }}
+    {{ event.event_name }}: <b>{{ event.description }}</b>
+  </p>
+
+</div> 
+{% endfor %}
+{% endblock %}
